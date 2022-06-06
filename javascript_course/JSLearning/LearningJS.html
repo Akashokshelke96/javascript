@@ -4,39 +4,124 @@
     <meta charset="UTF-8">
     <title>LearningJS</title>
   <script>
-    let name = 'akash';
-    let printName = `Hello ${name} !`;
+   //  let name = 'akash';
+   //  let printName = `Hello ${name} !`;
+   //
+   //  console.log(printName)
+   //
+   //
+   //  //functional programming
+   //  let arr = [10,20,30,40,50,60];
+   //  let element  = arr.findIndex(function (item){
+   //      if(item%2===0 && item%3===0){
+   //          return true;
+   //          console.log(item);
+   //      }
+   //      else return false;
+   //  })
+   //  console.log(element);
+   //
+   // arr.forEach(function(item) {
+   //      if(item%30===0){
+   //          console.log(item*2);
+   //      }
+   //  })
+   //
+   //  let arr = [10,20,30,40,50,60];
+   //  let num =  arr.map(function (item) {
+   //      if(item%2===0 && item%3===0){
+   //          return item;
+   //      }
+   //      else{
+   //          return item*10;
+   //      }
+   //  })
+   //  console.log(num);
 
-    console.log(printName)
+   //OBJECT
+   let car ={
+       name: 'model x',
+       company : 'tesla',
+       year : "2020",
+       price : 200000,
+       'auto drive' : true,
+
+       //function inside the OBJECT
+       printMe : function (){
+           console.log("inside printMe printing car name " + this.name + " price is " + this.price);
+       },
+   }
+   console.log(car["auto drive"]);
+   console.log(car.year);
+   console.log(car['name']);
+   car.name = "wolkswagon";
+   console.log(car.name);
+
+   car.owner = "akash";
+   console.log(car.owner);
+
+   car.printMe();
+
+   //USING FOR IN LOOPS;
+   let bike = {
+       name: 'cbr 650',
+       company: 'honda',
+       year: "2021",
+       price: 8000000,
+       'auto drive': true,
+   }
+
+   for(let property in bike){
+       console.log(" Bikes specs are = " + property + " defined like this " + bike[property])
+   }
 
 
-    //functional programming
-    let arr = [10,20,30,40,50,60];
-    let element  = arr.findIndex(function (item){
-        if(item%2===0 && item%3===0){
-            return true;
-            console.log(item);
+   //Copying and Comparing Objects
+   let carA = {
+       name: 'model x',
+       company: 'tesla',
+       year: "2020",
+       price: 200000,
+   }
+
+   let carC = Object.assign({},carA);
+   console.log(carC);
+   //spread operator to copy object
+   let carD = {...bike};
+   console.log(carD);
+
+   //CONSTRUCTOR
+   function  PersonMaker(name,age){
+      this.name = name;
+      this.age = age;
+      this.isAdult = function(){
+           if(this.age > 20){
+               return true
+           }
+           else{
+               return  false;
+           }
         }
-        else return false;
-    })
-    console.log(element);
+        this.greet = function(){
+           console.log(this.name + " is my name ! and i welcome you all!")
+        }
+   }
 
-   arr.forEach(function(item) {
-        if(item%30===0){
-            console.log(item*2);
-        }
-    })
+   let personA = new PersonMaker('akash',20);
+   let personB = new PersonMaker('nishu',28);
 
-    let arr = [10,20,30,40,50,60];
-    let num =  arr.map(function (item) {
-        if(item%2===0 && item%3===0){
-            return item;
-        }
-        else{
-            return item*10;
-        }
-    })
-    console.log(num);
+   personA.isAdult();
+   personA.greet();
+   personB.isAdult();
+   personB.greet();
+
+
+
+
+
+
+
+
 
 
 
